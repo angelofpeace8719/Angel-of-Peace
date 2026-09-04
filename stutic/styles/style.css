@@ -1,0 +1,183 @@
+/* 1. Сбрасываем внешние отступы у body и html */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffd700;
+  /* Фон страницы по умолчанию совпадает с нижней секцией */
+}
+
+.main-container {
+  width: 100%;
+  /* 2. Используем современную единицу 100dvh (Dynamic Viewport Height) */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ВЕРХНЯЯ ЧЕРНАЯ СЕКЦИЯ --- */
+.top-section {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.info-side {
+  flex: 1;
+}
+
+.main-title h1 {
+  color: #ffd700;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main-title h2 {
+  color: #ffd700;
+  font-size: 25px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.yellow-line {
+  width: 100%;
+  height: 3px;
+  background-color: #ffd700;
+  margin: 25px 0;
+}
+
+.subtitle {
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.contacts p {
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #ffd700;
+}
+
+.contacts .address {
+  margin-top: 10px;
+}
+
+.image-side {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- НИЖНЯЯ ЖЕЛТАЯ СЕКЦИЯ --- */
+.bottom-section {
+  background-color: #ffd700;
+  flex: 1;
+  /* Растягивает желтую секцию на все оставшееся место снизу */
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  gap: 30px;
+}
+.list-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+}
+
+
+h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.list-card {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.list-card ul {
+  list-style-position: inside;
+  font-size: 21px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.list-card li {
+  margin-bottom: 8px;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  
+}
+
+.photo-gallery img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  object-fit: contain;
+  background-color: #000000;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 15),
+              0 2px 6px rgba(0, 0, 0, 10);
+}
+
+/* Адаптировано под планшеты и мобильные */
+@media (max-width: 1024px) {
+
+  .top-section,
+  .bottom-section {
+    padding: 20px;
+
+  }
+}
+
+@media (max-width: 768px) {
+  .image-side {
+    display: none;
+  }
+
+  .list-wrapper {
+    flex-direction: column;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-card {
+    max-width: 100%;
+   }
+   .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+   }
+  
+}
